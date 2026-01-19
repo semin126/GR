@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 48c247e11b7d13143bda29f6eaf19ad2
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 280702
+  packageName: ManoMotion SDK - Hand Tracking for Smartphones
+  packageVersion: 2.1.1
+  assetPath: Assets/ManoMotion/Prefabs/DemoScenes/OcclusionScene.prefab
+  uploadId: 754335

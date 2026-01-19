@@ -1,0 +1,22 @@
+{
+    "name": "MyARScripts",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a9420e37d7990b54abdef6688edbe313",
+        "GUID:ce522b6ed64c8be4c989a1d26d0e3275",
+        "GUID:e40ba710768534012815d3193fa296cb",
+        "GUID:60e576d96416ac94182fe26f63acf9ff",
+        "GUID:92703082f92b41ba80f0d6912de66115"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

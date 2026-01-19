@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d7d3d4ab04433484886641f0885a2dd5
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 280702
+  packageName: ManoMotion SDK - Hand Tracking for Smartphones
+  packageVersion: 2.1.1
+  assetPath: Assets/ManoMotion/Prefabs/DemoScenes/TargetImage.prefab
+  uploadId: 754335
