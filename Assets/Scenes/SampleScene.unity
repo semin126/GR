@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 782628376}
   - component: {fileID: 782628379}
   - component: {fileID: 782628378}
+  - component: {fileID: 782628380}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -393,6 +394,22 @@ MonoBehaviour:
       m_Calls: []
   m_PlanePrefab: {fileID: 6916814680223935963, guid: 36d645b4395119d418f5b0d7e8cd3022, type: 3}
   m_DetectionMode: -1
+--- !u!114 &782628380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782628375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c3b546b41e61c438e963dee6b6e8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewPrefab: {fileID: 7428354355578447746, guid: 6ac64536feb59cc4194696a894f704e0, type: 3}
+  calendarPrefab: {fileID: 7136302458877076807, guid: 67603b3d58a0a9b4c9d3947dce57a5d5, type: 3}
+  touchEffectPrefab: {fileID: 886312144053193802, guid: 7ff9b8fb7c061f74184133cf48123ac2, type: 3}
+  holdTimeThreshold: 1
 --- !u!1 &1828601335
 GameObject:
   m_ObjectHideFlags: 0
