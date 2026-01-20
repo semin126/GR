@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DrawAppIcon
   - baseSDK
+  - Calendar
   layers:
   - Default
   - TransparentFX
