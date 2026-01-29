@@ -15,14 +15,10 @@ public class CalendarSelectionManager : MonoBehaviour
             selectedDateText.text = "Selected Date: (none)";
     }
 
-    /// <summary>
-    /// Called by DayCellSelection when a cell is clicked
-    /// </summary>
     public void Select(DayCellSelection cell)
     {
         if (cell == null) return;
 
-        // 클릭한 셀이 이미 선택된 셀이면 토글 해제
         if (current == cell)
         {
             current.SetSelected(false);
@@ -34,25 +30,53 @@ public class CalendarSelectionManager : MonoBehaviour
             return;
         }
 
-        // 기존 선택 해제
         if (current != null)
             current.SetSelected(false);
 
-        // 새 선택
         current = cell;
         current.SetSelected(true);
 
-        // 선택 날짜 표시
-        if (selectedDateText != null)
+        UpdateSelectedText();
+    }
+
+    public bool HasSelection()
+    {
+        return current != null;
+    }
+
+    public DateTime GetSelectedDate()
+    {
+        return current != null ? current.GetAssignedDate() : DateTime.Today;
+    }
+
+    public void RefreshSelectedTextWithEventCount()
+    {
+        UpdateSelectedText();
+    }
+
+    private void UpdateSelectedText()
+    {
+        if (selectedDateText == null) return;
+
+        if (current == null)
         {
-            DateTime date = cell.GetAssignedDate();
-            selectedDateText.text = $"Selected Date: {date:yyyy-MM-dd} ({ToDow3(date)})";
+            selectedDateText.text = "Selected Date: (none)";
+            return;
         }
+
+        DateTime date = current.GetAssignedDate();
+        int count = 0;
+
+        var db = CalendarEventDatabase.Instance;
+        if (db != null)
+            count = db.GetEventsOn(date).Count;
+
+        selectedDateText.text =
+            $"Selected Date: {date:yyyy-MM-dd} ({ToDow3(date)})  |  Events: {count}";
     }
 
     private string ToDow3(DateTime d)
     {
-        // Mon Tue Wed Thu Fri Sat Sun
         return d.DayOfWeek switch
         {
             DayOfWeek.Monday => "Mon",

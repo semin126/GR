@@ -14,10 +14,10 @@ public class DayCellSelection : MonoBehaviour
     private bool hasDateAssigned;
 
     private static readonly Color SelectionYellow = new Color(1f, 1f, 0f, 1f);
-    private static readonly Color TodayGreen     = new Color(0f, 1f, 0f, 1f);
+    private static readonly Color TodayGreen = new Color(0f, 1f, 0f, 1f);
 
     private static readonly Vector2 SelectionThickness = new Vector2(6f, -6f);
-    private static readonly Vector2 TodayThickness     = new Vector2(9f, -9f);
+    private static readonly Vector2 TodayThickness = new Vector2(9f, -9f);
 
     private void Awake()
     {
@@ -85,7 +85,6 @@ public class DayCellSelection : MonoBehaviour
             todayOutline.enabled = (date.Date == DateTime.Today);
     }
 
-    // ✅ CalendarSelectionManager가 읽어갈 함수(이 이름이 중요!)
     public DateTime GetAssignedDate()
     {
         return hasDateAssigned ? assignedDate : DateTime.Today;

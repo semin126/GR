@@ -6,6 +6,7 @@ public class WeekFromMonthGridPicker : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private Transform monthGridRoot;     // MonthGrid (42 children)
     [SerializeField] private WeekViewController weekView; // ✅ Inspector로 연결
+    [SerializeField] private GameObject weekViewRoot;
 
     private void Awake()
     {
@@ -15,15 +16,18 @@ public class WeekFromMonthGridPicker : MonoBehaviour
 
     public void OpenWeek(int weekIndex)
     {
-        if (weekView == null)
+        if (weekViewRoot == null || weekView == null)
         {
-            Debug.LogError("[WeekFromMonthGridPicker] weekView is null. Assign it in Inspector.", this);
+            Debug.LogError("[WeekFromMonthGridPicker] WeekView references not set", this);
             return;
         }
 
         if (monthGridRoot == null || monthGridRoot.childCount < 42)
         {
-            Debug.LogError($"[WeekFromMonthGridPicker] MonthGridRoot needs 42 cells, current: {(monthGridRoot == null ? 0 : monthGridRoot.childCount)}", this);
+            Debug.LogError(
+                $"[WeekFromMonthGridPicker] MonthGridRoot needs 42 cells, current: {(monthGridRoot == null ? 0 : monthGridRoot.childCount)}",
+                this
+            );
             return;
         }
 
@@ -41,7 +45,8 @@ public class WeekFromMonthGridPicker : MonoBehaviour
             var sel = cell.GetComponent<DayCellSelection>();
             if (sel == null) continue;
 
-            if (firstCell == null) firstCell = sel;
+            if (firstCell == null)
+                firstCell = sel;
 
             DateTime d = sel.GetAssignedDate();
             if (d.DayOfWeek == DayOfWeek.Monday)
@@ -54,6 +59,10 @@ public class WeekFromMonthGridPicker : MonoBehaviour
         var chosen = mondayCell != null ? mondayCell : firstCell;
         if (chosen == null) return;
 
+        // 🔴 이 한 줄이 핵심
+        weekViewRoot.SetActive(true);
+
         weekView.ShowWeekOf(chosen.GetAssignedDate());
     }
+
 }
